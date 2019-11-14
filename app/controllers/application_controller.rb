@@ -5,6 +5,12 @@ class ApplicationController < ActionController::Base
 
   private
 
+  
+  http_basic_authenticate_with name: ENV["HTTP_BASIC_USER"],
+  password: ENV["HTTP_BASIC_PASSWORD"],
+   if: -> { ENV["HTTP_BASIC_PASSWORD"].present? }
+  
+
   def cart
     @cart ||= cookies[:cart].present? ? JSON.parse(cookies[:cart]) : {}
   end
@@ -31,8 +37,6 @@ class ApplicationController < ActionController::Base
     cookies[:cart]
   end
 
-  # def empty_cart
-    
-  # end
+
 
 end
