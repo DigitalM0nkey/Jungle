@@ -1,2 +1,30 @@
-<h1>Admin::Dashboard#show</h1>
-<p>Find me in app/views/admin/dashboard/show.html.erb</p>
+<h1>Admin Dashboard</h1>
+
+<button type="button" class="btn btn-primary">
+  Products <span class="badge badge-light"><%=  @prods.count %></span>
+</button>
+
+
+<span>
+<div>
+<% @prods.each do |item| %>
+ <a href="#" class="badge badge-secondary"><%= item.name %></a> 
+<% end %>
+</div>
+</span>
+
+<br>
+
+<button type="button" class="btn btn-primary">
+  Categories <span class="badge badge-light"><%= @cats.count %></span>
+</button>
+
+
+<span>
+<div>
+<% @cats.each do |item| %>
+ <a href="#" class="badge badge-secondary"><%= item.name %></a> 
+<% end %>
+</div>
+</span>
+
